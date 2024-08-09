@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
-
 @Slf4j
 @Controller  // 컨트롤러 선언
 public class ArticleController {  // URL 요청 접수
@@ -36,7 +35,7 @@ public class ArticleController {  // URL 요청 접수
         //2. 리파지터리로 엔티티를 DB에 저장
         Article saved = articleRepository.save(article);  // article 엔티티를 저장해 saved 객체에 반환
         log.info(saved.toString());  // article 이 DB에 잘 저장되는지 확인 출력
-        return "";
+        return "redirect:/articles/" + saved.getId();
     }
 
     @GetMapping("/articles/{id}")  // 데이터 조회 요청 접수
