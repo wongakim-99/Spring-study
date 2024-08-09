@@ -11,13 +11,13 @@
     <tbody>
     {{#article}}
     <tr>
-        <th>{{id}}</th>
+        <th>{{id}}</th>  <!--article의 사용 범위를 지정한 경우에는 id만 써도됨, 그러나 그 밖에는 article.id로 표기-->
         <td>{{title}}</td>
         <td>{{content}}</td>
     </tr>
     {{/article}}
     </tbody>
 </table>
-
+<a href="/articles/{{article.id}}/edit" class="btn btn-primary">Edit</a>
 <a href="/articles">Go to Article List</a>
 {{>layouts/footer}}
