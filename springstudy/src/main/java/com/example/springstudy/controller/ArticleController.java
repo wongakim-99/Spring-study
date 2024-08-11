@@ -95,4 +95,20 @@ public class ArticleController {  // URL 요청 접수
         // 3. 수정 결과 페이지로 리다이렉트하기
         return "redirect:/articles/" + articleEntity.getId();
     }
+
+    @GetMapping("/articles/{id}/delete")  // 데이터 삭제 작업
+    public String delete(@PathVariable Long id) {
+        log.info("삭제 요청이 들어왔습니다.");
+        // 1. 삭제할 대상 가져오기
+        Article target = articleRepository.findById(id).orElse(null);
+        log.info(target.toString());
+
+        // 2. 대상 엔티티 삭제하기
+        if (target != null) {  // 삭제할 대상이 있는지 확인
+            articleRepository.delete(target);  // delete() 메서드로 삭제 진행
+        }
+
+        // 3. 결과 페이지로 리다이렉트하기
+        return null;
+    }
 }
