@@ -51,4 +51,18 @@ public class ArticleService {
         Article updated = articleRepository.save(target);
         return updated;
     }
+
+    public Article delete(Long id) {
+        // 1. DB에서 대상 엔티티가 있는지 조회
+        Article target = articleRepository.findById(id).orElse(null);
+
+        // 2. ResponseEntity에 상태와 본문을 실어 보낼 필요가 없기 때문에, 그 역할은 컨트롤러가 진행
+        // 따라서 그냥 null을 반환
+        if (target == null) {
+            return null;
+        }
+        // 3. 삭제한 대상을 컨트롤러에 보내줘야 하므로 target을 반환
+        articleRepository.delete(target);
+        return null;
+    }
 }
