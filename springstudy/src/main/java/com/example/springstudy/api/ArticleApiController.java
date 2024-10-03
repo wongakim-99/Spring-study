@@ -58,5 +58,9 @@ public class ArticleApiController {
     //trans action 메서드 정의
     @PostMapping("api/transaction-test")  // 여러 게시글 생성 요청 접수
     public ResponseEntity<List<Article>> transactionTest(@RequestBody List<ArticleForm> dtos){
+        List<Article> createdList = articleService.createArticles(dtos);  // 서비스 호출
+        return (createdList != null) ?  // 생성 결과에 따라 응답 처리
+                ResponseEntity.status(HttpStatus.OK).body(createdList) :
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 }

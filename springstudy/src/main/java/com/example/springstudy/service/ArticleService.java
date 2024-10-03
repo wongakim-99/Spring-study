@@ -65,4 +65,11 @@ public class ArticleService {
         articleRepository.delete(target);
         return null;
     }
+
+    public List<Article> createArticles(List<ArticleForm> dtos) {
+        // 1. dto묶음(리스트)를 엔티티 묶음(리스트)로 변환하기
+        // 2. 엔티티 묶음(리스트)를 DB에 저장하기
+        // 3. 강제로 에러를 발생시키기
+        // 4. 결과 값 반환하기
+    }
 }
