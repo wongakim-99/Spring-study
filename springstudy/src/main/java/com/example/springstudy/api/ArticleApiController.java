@@ -54,4 +54,9 @@ public class ArticleApiController {
                 ResponseEntity.status(HttpStatus.NO_CONTENT).build() :
                 ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
+
+    //trans action 메서드 정의
+    @PostMapping("api/transaction-test")  // 여러 게시글 생성 요청 접수
+    public ResponseEntity<List<Article>> transactionTest(@RequestBody List<ArticleForm> dtos){
+    }
 }
