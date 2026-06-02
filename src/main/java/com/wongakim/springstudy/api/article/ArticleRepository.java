@@ -1,6 +1,6 @@
-package com.wongakim.springstudy.repository;
+package com.wongakim.springstudy.api.article;
 
-import com.wongakim.springstudy.entity.Article;
+import com.wongakim.springstudy.schema.Article;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.ArrayList;
